@@ -1,689 +1,1771 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RidesZW — Masvingo · Harare Transport</title>
-<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADvUlEQVR4AexUe0zNURz/3N+9lXsrJOZR3swrwwpDwl2S5lG4uiIReUQhbK53KcOwink0RMOujahZSUz0h0eemdctK1OE5Urv+3TOad26d/euO5u12b37ne855/P5fs++53O+38tBMkDfnoNDO/9sCdgUsCnwfyjA5/7+HlZFcjwOw9wGmv3LChgzFbLAtWY5a0CrEnCws8OQXgPMnucsdIRjB5FZzhrQqgTqVY24UZBr+Ty93jLXBmNVAv26uSNonJ/Foxo1KotcWwRLwF5gh45CJ7O+fqO8kR8nR8qqBCPeQWCPeGkMEqSbodZqjThzmxXihXh2IAOPEq5BFtRSM5zYYwKKk+/hQ9IdCDg+i/UdORFZsnPs1oovpRi5JQDlym+Mo4bPcbiyKZkseVB8LYVGqyHrli9q5lJ8P/MEqZEHDeCFvGuYtEsCcexiiEdMwMQhnozjahvq4Bsfil+1vyHg87FuxhJIJ83GhtQ4aHValP4oQ3V9LSjPIoiJ8g9D+pMc7JQfQcHHQjSoGwna9NFu2Rccgy5OLrj7+mETSKyGnNWgVqFO1UCSLjEozj0ufgXFlxLiAoT6BGHK8PGIOCVDUUUpMp/eZbh7l+5QfG3yoYD/GB+k3b9Ol3Bx7Ah9qyJcMz2EJTTnYAQu5t9gPq1NJ5EzZnmK8VDxHO6uPcA1kzweD7HBm7D2zC6Y1nSfbm4oIk9BfV2dXVBWWUGXbNB9cxGGeM9BOHnraXtDkPUij/GmZtvcNTiVe5nBK4kvx1bEuDh1wvHsNFRW/yI7409kL0RNYx0Dq8hTDerRF0L7DmwvchAibMp8bAhYDlfnzqB1VPL9M+OazYjegxHptwShkwMxuv9wHMpIwe4FUXhcXNikQGcio4gcePL2peYYo7myWonBPfuBx+NhpW8wsp7nIWfHeaRvOQHvoV64+igbSVmpOEYu8La8GAK+gMXzOQ6rfRchfNpClP+sIOpIIE2MBi1SN/Ks2UQlpkCfrr1w4X46lLVVLNDUvPz0DlNJbbxPzIVnfw8cykyBzx4p5h2ORGbBHeS8fGAIOXrzLB7EynE5OhHyjcmorFFic1oC9kii4UqeT74xiXSNFouTY1gMS6Dw03tEn4tjgDlD28xLFgiPGH9EnN5u5LIqZQfelBUZsEv5GRgrC8KyE1shObqeqHOLcdPjw+C1bS5m7g/H8VtprMMowRKgC51eRyeLQ6fTQW3S79SZtiqdWw+KqTTq1hCpLSVMMepgSIBu2mPYErApYFPgnyvQVmv/AQAA///FjzMMAAAABklEQVQDAKs/ahCBmsSOAAAAAElFTkSuQmCC">
-<link rel="icon" type="image/png" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABlklEQVR4AdSPSyisYRjHf/MOznEYjnNO5+ScOp2LBSGXJiEmt2im3BZjYVas2LEQllZiaYWFhXsSYeNeUorYiFJK5DJpxmUQmTE+3/fRt2CKspC33uf99Tzv/9//EVj/Sa+5gleed2Cge2bFJyvoheD3t5+arCLXprEveGLgr/fn8vpK++sn9Br7AmFJyMAUlURYUAhZMSkUGLOxpReiRK+ylGH8H6vqfn35QXmmVeVCYw4NJVWEfDIgVrbWMMebZFERm/ZtRpdnsJ86MMvGfQtjak9RNdlqCfALUJCR5Wm2HXuEBgYjDl1OMmNTaZvqZffITnjYd3Yc+3w1fMbhOiYi/A/5cqpd5wGtUz0EfQgk8W80ho/BpEUaEaFyjI7ZATzeG9X96PyEkhQLOp2O0rR8Dk+djMmprr0erMlm8uJM1BdX4va6Wd3ZQLguz2mf7lfFSjm7uqCmq5HOuWG650eo62lW2jQMtDC4OM7Q0gS2lmpaJ3tZ39tEqNNH5VaStI7EPSuv9NB333i0uU8DbfoCeHuDOwAAAP//y4ZfNAAAAAZJREFUAwBLGZOBKVNGwgAAAABJRU5ErkJggg==">
-<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,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">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --green:   #1a3d2b;
-  --green2:  #245138;
-  --green3:  #2e6645;
-  --gold:    #e8a020;
-  --gold2:   #f5b840;
-  --cream:   #f9f4ec;
-  --cream2:  #f0e8d8;
-  --dark:    #0e2219;
-  --text:    #1a3d2b;
-  --muted:   #6b8c77;
-  --white:   #ffffff;
-  --red:     #c0392b;
-  --shadow:  0 8px 40px rgba(14,34,25,.13);
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);min-height:100vh}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RidesZW — Masvingo · Harare Transport</title>
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADvUlEQVR4AexUe0zNURz/3N+9lXsrJOZR3swrwwpDwl2S5lG4uiIReUQhbK53KcOwink0RMOujahZSUz0h0eemdctK1OE5Urv+3TOad26d/euO5u12b37ne855/P5fs++53O+38tBMkDfnoNDO/9sCdgUsCnwfyjA5/7+HlZFcjwOw9wGmv3LChgzFbLAtWY5a0CrEnCws8OQXgPMnucsdIRjB5FZzhrQqgTqVY24UZBr+Ty93jLXBmNVAv26uSNonJ/Foxo1KotcWwRLwF5gh45CJ7O+fqO8kR8nR8qqBCPeQWCPeGkMEqSbodZqjThzmxXihXh2IAOPEq5BFtRSM5zYYwKKk+/hQ9IdCDg+i/UdORFZsnPs1oovpRi5JQDlym+Mo4bPcbiyKZkseVB8LYVGqyHrli9q5lJ8P/MEqZEHDeCFvGuYtEsCcexiiEdMwMQhnozjahvq4Bsfil+1vyHg87FuxhJIJ83GhtQ4aHValP4oQ3V9LSjPIoiJ8g9D+pMc7JQfQcHHQjSoGwna9NFu2Rccgy5OLrj7+mETSKyGnNWgVqFO1UCSLjEozj0ufgXFlxLiAoT6BGHK8PGIOCVDUUUpMp/eZbh7l+5QfG3yoYD/GB+k3b9Ol3Bx7Ah9qyJcMz2EJTTnYAQu5t9gPq1NJ5EzZnmK8VDxHO6uPcA1kzweD7HBm7D2zC6Y1nSfbm4oIk9BfV2dXVBWWUGXbNB9cxGGeM9BOHnraXtDkPUij/GmZtvcNTiVe5nBK4kvx1bEuDh1wvHsNFRW/yI7409kL0RNYx0Dq8hTDerRF0L7DmwvchAibMp8bAhYDlfnzqB1VPL9M+OazYjegxHptwShkwMxuv9wHMpIwe4FUXhcXNikQGcio4gcePL2peYYo7myWonBPfuBx+NhpW8wsp7nIWfHeaRvOQHvoV64+igbSVmpOEYu8La8GAK+gMXzOQ6rfRchfNpClP+sIOpIIE2MBi1SN/Ks2UQlpkCfrr1w4X46lLVVLNDUvPz0DlNJbbxPzIVnfw8cykyBzx4p5h2ORGbBHeS8fGAIOXrzLB7EynE5OhHyjcmorFFic1oC9kii4UqeT74xiXSNFouTY1gMS6Dw03tEn4tjgDlD28xLFgiPGH9EnN5u5LIqZQfelBUZsEv5GRgrC8KyE1shObqeqHOLcdPjw+C1bS5m7g/H8VtprMMowRKgC51eRyeLQ6fTQW3S79SZtiqdWw+KqTTq1hCpLSVMMepgSIBu2mPYErApYFPgnyvQVmv/AQAA///FjzMMAAAABklEQVQDAKs/ahCBmsSOAAAAAElFTkSuQmCC">
+  <link rel="icon" type="image/png" sizes="16x16"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABlklEQVR4AdSPSyisYRjHf/MOznEYjnNO5+ScOp2LBSGXJiEmt2im3BZjYVas2LEQllZiaYWFhXsSYeNeUorYiFJK5DJpxmUQmTE+3/fRt2CKspC33uf99Tzv/9//EVj/Sa+5gleed2Cge2bFJyvoheD3t5+arCLXprEveGLgr/fn8vpK++sn9Br7AmFJyMAUlURYUAhZMSkUGLOxpReiRK+ylGH8H6vqfn35QXmmVeVCYw4NJVWEfDIgVrbWMMebZFERm/ZtRpdnsJ86MMvGfQtjak9RNdlqCfALUJCR5Wm2HXuEBgYjDl1OMmNTaZvqZffITnjYd3Yc+3w1fMbhOiYi/A/5cqpd5wGtUz0EfQgk8W80ho/BpEUaEaFyjI7ZATzeG9X96PyEkhQLOp2O0rR8Dk+djMmprr0erMlm8uJM1BdX4va6Wd3ZQLguz2mf7lfFSjm7uqCmq5HOuWG650eo62lW2jQMtDC4OM7Q0gS2lmpaJ3tZ39tEqNNH5VaStI7EPSuv9NB333i0uU8DbfoCeHuDOwAAAP//y4ZfNAAAAAZJREFUAwBLGZOBKVNGwgAAAABJRU5ErkJggg==">
+  <link rel="apple-touch-icon" sizes="180x180"
+    href="data:image/png;base64,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">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --green: #1a3d2b;
+      --green2: #245138;
+      --green3: #2e6645;
+      --gold: #e8a020;
+      --gold2: #f5b840;
+      --cream: #f9f4ec;
+      --cream2: #f0e8d8;
+      --dark: #0e2219;
+      --text: #1a3d2b;
+      --muted: #6b8c77;
+      --white: #ffffff;
+      --red: #c0392b;
+      --shadow: 0 8px 40px rgba(14, 34, 25, .13);
+    }
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:999;
-  background:var(--green);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 5%;height:68px;
-  box-shadow:0 2px 24px rgba(0,0,0,.25);
-}
-.logo{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);letter-spacing:-.5px;cursor:pointer}
-.logo span{color:var(--gold)}
-.nav-links{display:flex;gap:8px}
-.nav-links button{
-  background:none;border:none;color:rgba(255,255,255,.75);
-  font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:500;
-  padding:8px 14px;border-radius:8px;cursor:pointer;transition:.2s
-}
-.nav-links button:hover,.nav-links button.active{background:rgba(255,255,255,.1);color:var(--white)}
-.nav-links button.cta{background:var(--gold);color:var(--dark);font-weight:600}
-.nav-links button.cta:hover{background:var(--gold2)}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
 
-/* ── PAGES ── */
-.page{display:none;min-height:100vh;padding-top:68px;animation:fadeIn .35s ease}
-.page.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* ── HOME HERO ── */
-.hero{
-  background:var(--green);
-  min-height:520px;
-  display:flex;align-items:center;
-  padding:80px 5% 80px;
-  position:relative;overflow:hidden;
-}
-.hero::before{
-  content:'';position:absolute;right:-80px;top:-80px;
-  width:550px;height:550px;border-radius:50%;
-  background:radial-gradient(circle,var(--green3) 0%,transparent 70%);
-  opacity:.6;
-}
-.hero::after{
-  content:'';position:absolute;left:30%;bottom:-60px;
-  width:300px;height:300px;border-radius:50%;
-  background:var(--gold);opacity:.06;
-}
-.hero-content{position:relative;z-index:1;max-width:560px}
-.hero-tag{
-  display:inline-flex;align-items:center;gap:8px;
-  background:rgba(232,160,32,.15);border:1px solid rgba(232,160,32,.3);
-  color:var(--gold);font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
-  padding:6px 14px;border-radius:100px;margin-bottom:24px;
-}
-.hero h1{
-  font-family:'Syne',sans-serif;font-size:clamp(2.4rem,5vw,3.6rem);
-  font-weight:800;color:var(--white);line-height:1.1;margin-bottom:20px;
-}
-.hero h1 em{color:var(--gold);font-style:normal}
-.hero p{color:rgba(255,255,255,.7);font-size:1.05rem;line-height:1.7;margin-bottom:36px;max-width:440px}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
-.btn{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:14px 28px;border-radius:10px;font-family:'DM Sans',sans-serif;
-  font-size:.95rem;font-weight:600;cursor:pointer;border:none;
-  transition:all .2s;text-decoration:none;
-}
-.btn-gold{background:var(--gold);color:var(--dark)}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,32,.35)}
-.btn-outline{background:transparent;color:var(--white);border:1.5px solid rgba(255,255,255,.3)}
-.btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.6)}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh
+    }
 
-/* ── ROUTE CARDS ── */
-.routes-section{padding:60px 5%}
-.section-label{font-size:.8rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
-.section-title{font-family:'Syne',sans-serif;font-size:1.9rem;font-weight:700;color:var(--green);margin-bottom:32px}
-.route-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.route-card{
-  background:var(--white);border-radius:16px;padding:28px;
-  border:1.5px solid var(--cream2);box-shadow:var(--shadow);
-  cursor:pointer;transition:all .25s;position:relative;overflow:hidden;
-}
-.route-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:4px;
-  background:linear-gradient(90deg,var(--green),var(--gold));
-  transform:scaleX(0);transform-origin:left;transition:.25s;
-}
-.route-card:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(14,34,25,.15)}
-.route-card:hover::before{transform:scaleX(1)}
-.route-icon{font-size:2rem;margin-bottom:14px}
-.route-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:6px}
-.route-price{font-size:1.8rem;font-weight:700;color:var(--gold);margin-bottom:12px}
-.route-price span{font-size:.9rem;color:var(--muted);font-weight:400}
-.route-meta{display:flex;flex-direction:column;gap:6px}
-.route-meta div{font-size:.85rem;color:var(--muted);display:flex;align-items:center;gap:7px}
-.route-card .book-btn{
-  margin-top:20px;width:100%;padding:11px;border-radius:8px;
-  background:var(--green);color:var(--white);font-weight:600;
-  font-size:.9rem;border:none;cursor:pointer;transition:.2s;
-}
-.route-card .book-btn:hover{background:var(--green3)}
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5%;
+      height: 68px;
+      box-shadow: 0 2px 24px rgba(0, 0, 0, .25);
+    }
 
-/* ── INFO STRIP ── */
-.info-strip{
-  background:var(--green);padding:28px 5%;
-  display:flex;justify-content:space-around;flex-wrap:wrap;gap:20px;
-}
-.info-item{text-align:center;color:var(--white)}
-.info-item strong{display:block;font-family:'Syne',sans-serif;font-size:1.5rem;color:var(--gold);margin-bottom:4px}
-.info-item span{font-size:.85rem;opacity:.7}
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -.5px;
+      cursor: pointer
+    }
 
-/* ── BOOKING PAGE ── */
-.page-header{
-  background:var(--green);padding:50px 5% 40px;
-}
-.page-header h2{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--white);margin-bottom:6px}
-.page-header p{color:rgba(255,255,255,.6);font-size:.95rem}
-.breadcrumb{
-  display:inline-flex;align-items:center;gap:8px;
-  color:rgba(255,255,255,.5);font-size:.82rem;margin-bottom:16px;cursor:pointer;
-  background:rgba(255,255,255,.07);padding:6px 14px;border-radius:100px;border:none;
-  font-family:'DM Sans',sans-serif;
-}
-.breadcrumb:hover{background:rgba(255,255,255,.12)}
+    .logo span {
+      color: var(--gold)
+    }
 
-.form-wrap{max-width:680px;margin:40px auto;padding:0 5% 60px}
-.form-card{background:var(--white);border-radius:20px;padding:36px;box-shadow:var(--shadow);border:1.5px solid var(--cream2)}
-.form-section-title{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--green);
-  margin:24px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--cream2);display:flex;align-items:center;gap:8px}
-.form-group{margin-bottom:18px}
-.form-group label{display:block;font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:7px}
-.form-group label span{color:var(--red)}
-.form-group input,.form-group select{
-  width:100%;padding:12px 14px;border:1.5px solid var(--cream2);
-  border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95rem;
-  color:var(--text);background:var(--cream);transition:.2s;outline:none;
-}
-.form-group input:focus,.form-group select:focus{border-color:var(--green);background:var(--white);box-shadow:0 0 0 3px rgba(26,61,43,.08)}
-.form-group select option{background:var(--white)}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.amount-box{
-  background:var(--green);border-radius:12px;padding:18px 22px;
-  display:flex;justify-content:space-between;align-items:center;margin:24px 0;
-}
-.amount-box span{color:rgba(255,255,255,.7);font-size:.9rem}
-.amount-box strong{font-family:'Syne',sans-serif;font-size:1.8rem;color:var(--gold);font-weight:800}
-.submit-btn{
-  width:100%;padding:15px;background:var(--gold);color:var(--dark);
-  border:none;border-radius:12px;font-family:'Syne',sans-serif;
-  font-size:1rem;font-weight:700;cursor:pointer;transition:.2s;
-  letter-spacing:.02em;
-}
-.submit-btn:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(232,160,32,.4)}
-.submit-btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+    .nav-links {
+      display: flex;
+      gap: 8px
+    }
 
-/* ── CONFIRMATION ── */
-.confirm-wrap{max-width:520px;margin:50px auto;padding:0 5% 80px;text-align:center}
-.confirm-icon{font-size:4rem;margin-bottom:16px;animation:pop .4s ease}
-@keyframes pop{from{transform:scale(.5)}to{transform:scale(1)}}
-.confirm-card{background:var(--white);border-radius:20px;padding:36px;box-shadow:var(--shadow);border:1.5px solid var(--cream2)}
-.confirm-card h2{font-family:'Syne',sans-serif;font-size:1.6rem;color:var(--green);margin-bottom:8px}
-.confirm-card p{color:var(--muted);margin-bottom:24px;font-size:.95rem}
-.ref-badge{
-  background:var(--green);color:var(--gold);
-  font-family:'Syne',sans-serif;font-size:1.8rem;font-weight:800;
-  padding:16px 32px;border-radius:12px;display:inline-block;
-  letter-spacing:.1em;margin-bottom:24px;
-}
-.payment-card{background:var(--cream);border-radius:14px;padding:22px;text-align:left;margin-bottom:24px}
-.payment-card h4{font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;color:var(--green);margin-bottom:14px;display:flex;align-items:center;gap:6px}
-.payment-method{background:var(--white);border-radius:10px;padding:14px 16px;margin-bottom:10px;font-size:.9rem;color:var(--text)}
-.payment-method strong{color:var(--green);display:block;margin-bottom:4px;font-size:.85rem}
-.payment-method code{font-size:.85rem;color:var(--muted);background:var(--cream2);padding:2px 6px;border-radius:4px}
-.wa-btn{
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  background:#25D366;color:var(--white);padding:14px;border-radius:12px;
-  font-weight:700;font-size:.95rem;text-decoration:none;margin-bottom:12px;transition:.2s;
-}
-.wa-btn:hover{background:#20ba5a;transform:translateY(-2px)}
-.back-home{
-  background:none;border:1.5px solid var(--cream2);color:var(--muted);
-  padding:12px 24px;border-radius:10px;cursor:pointer;font-family:'DM Sans',sans-serif;
-  font-weight:500;transition:.2s;
-}
-.back-home:hover{border-color:var(--green);color:var(--green)}
+    .nav-links button {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, .75);
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: .2s
+    }
 
-/* ── CHECK BOOKING ── */
-.check-wrap{max-width:480px;margin:50px auto;padding:0 5% 80px}
-.check-card{background:var(--white);border-radius:20px;padding:36px;box-shadow:var(--shadow);border:1.5px solid var(--cream2)}
-.check-card h3{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:var(--green);margin-bottom:8px}
-.check-card p{color:var(--muted);font-size:.9rem;margin-bottom:24px}
-.check-input-row{display:flex;gap:10px}
-.check-input-row input{
-  flex:1;padding:12px 14px;border:1.5px solid var(--cream2);border-radius:10px;
-  font-family:'DM Sans',sans-serif;font-size:.95rem;outline:none;transition:.2s;background:var(--cream);
-}
-.check-input-row input:focus{border-color:var(--green);background:var(--white)}
-.check-input-row button{
-  padding:12px 20px;background:var(--green);color:var(--white);
-  border:none;border-radius:10px;font-weight:600;cursor:pointer;transition:.2s;
-}
-.check-input-row button:hover{background:var(--green3)}
-.booking-result{margin-top:24px;display:none}
-.booking-result.visible{display:block;animation:fadeIn .3s ease}
-.result-card{background:var(--cream);border-radius:14px;padding:22px}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--cream2);font-size:.9rem}
-.result-row:last-child{border-bottom:none}
-.result-row label{color:var(--muted);font-weight:500}
-.result-row strong{color:var(--text);font-weight:600}
-.status-badge{padding:4px 12px;border-radius:100px;font-size:.78rem;font-weight:700;letter-spacing:.05em}
-.status-pending{background:rgba(232,160,32,.15);color:#b37d10}
-.status-confirmed{background:rgba(46,102,69,.15);color:var(--green3)}
-.status-cancelled{background:rgba(192,57,43,.12);color:var(--red)}
-.not-found{text-align:center;padding:32px 0;color:var(--muted);font-size:.9rem}
+    .nav-links button:hover,
+    .nav-links button.active {
+      background: rgba(255, 255, 255, .1);
+      color: var(--white)
+    }
 
-/* ── CONTACT ── */
-.contact-wrap{max-width:680px;margin:40px auto;padding:0 5% 80px}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
-.contact-card{background:var(--white);border-radius:16px;padding:28px;box-shadow:var(--shadow);border:1.5px solid var(--cream2)}
-.contact-card h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;color:var(--green);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.contact-card p{font-size:.9rem;color:var(--muted);line-height:1.7}
-.contact-card a{color:var(--green);font-weight:600;text-decoration:none}
-.contact-card a:hover{color:var(--gold)}
-.routes-list{margin-top:8px}
-.routes-list li{font-size:.88rem;color:var(--muted);padding:4px 0;list-style:none;display:flex;align-items:center;gap:7px}
-.routes-list li::before{content:'\2713';color:var(--gold);font-weight:700}
+    .nav-links button.cta {
+      background: var(--gold);
+      color: var(--dark);
+      font-weight: 600
+    }
 
-/* ── ADMIN ── */
-.admin-login-wrap{max-width:400px;margin:60px auto;padding:0 5%}
-.admin-card{background:var(--white);border-radius:20px;padding:40px;box-shadow:var(--shadow);border:1.5px solid var(--cream2);text-align:center}
-.admin-card h3{font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:700;color:var(--green);margin-bottom:6px}
-.admin-card p{color:var(--muted);font-size:.88rem;margin-bottom:28px}
-.admin-input{
-  width:100%;padding:12px 14px;border:1.5px solid var(--cream2);
-  border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.95rem;
-  margin-bottom:14px;outline:none;background:var(--cream);transition:.2s;
-}
-.admin-input:focus{border-color:var(--green);background:var(--white)}
-.admin-login-btn{
-  width:100%;padding:13px;background:var(--green);color:var(--white);
-  border:none;border-radius:10px;font-family:'Syne',sans-serif;font-size:1rem;
-  font-weight:700;cursor:pointer;transition:.2s;
-}
-.admin-login-btn:hover{background:var(--green3)}
-.error-msg{color:var(--red);font-size:.85rem;margin-bottom:10px;display:none}
+    .nav-links button.cta:hover {
+      background: var(--gold2)
+    }
 
-/* ── ADMIN DASHBOARD ── */
-.dash-header{
-  background:var(--green);padding:36px 5% 30px;
-  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
-}
-.dash-header h2{font-family:'Syne',sans-serif;font-size:1.6rem;font-weight:800;color:var(--white)}
-.dash-header p{color:rgba(255,255,255,.6);font-size:.85rem;margin-top:4px}
-.logout-btn{
-  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
-  color:var(--white);padding:8px 18px;border-radius:8px;cursor:pointer;
-  font-family:'DM Sans',sans-serif;font-weight:500;transition:.2s;
-}
-.logout-btn:hover{background:rgba(255,255,255,.18)}
-.dash-body{padding:32px 5% 60px}
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:32px}
-.stat-card{background:var(--white);border-radius:14px;padding:22px;box-shadow:var(--shadow);border:1.5px solid var(--cream2)}
-.stat-card label{font-size:.78rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
-.stat-card strong{font-family:'Syne',sans-serif;font-size:2rem;font-weight:800;color:var(--green)}
-.stat-card.highlight strong{color:var(--gold)}
-.table-card{background:var(--white);border-radius:16px;padding:24px;box-shadow:var(--shadow);border:1.5px solid var(--cream2);overflow-x:auto}
-.table-card h3{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:700;color:var(--green);margin-bottom:20px;display:flex;align-items:center;justify-content:space-between}
-.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px}
-.filter-btn{padding:7px 16px;border-radius:8px;border:1.5px solid var(--cream2);background:none;
-  font-family:'DM Sans',sans-serif;font-size:.83rem;font-weight:500;color:var(--muted);cursor:pointer;transition:.2s}
-.filter-btn.active,.filter-btn:hover{background:var(--green);color:var(--white);border-color:var(--green)}
-table{width:100%;border-collapse:collapse;min-width:700px;font-size:.87rem}
-th{text-align:left;padding:10px 14px;font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--cream2)}
-td{padding:13px 14px;border-bottom:1px solid var(--cream2);color:var(--text)}
-tr:last-child td{border-bottom:none}
-tr:hover td{background:rgba(249,244,236,.6)}
-.action-btn{padding:5px 12px;border-radius:6px;border:none;font-size:.78rem;font-weight:600;cursor:pointer;transition:.2s}
-.action-confirm{background:rgba(46,102,69,.1);color:var(--green3)}
-.action-confirm:hover{background:var(--green3);color:var(--white)}
-.action-cancel{background:rgba(192,57,43,.08);color:var(--red)}
-.action-cancel:hover{background:var(--red);color:var(--white)}
-.empty-table{text-align:center;padding:48px;color:var(--muted);font-size:.9rem}
+    /* ── PAGES ── */
+    .page {
+      display: none;
+      min-height: 100vh;
+      padding-top: 68px;
+      animation: fadeIn .35s ease
+    }
 
-/* ── TOAST ── */
-.toast{
-  position:fixed;bottom:28px;right:28px;z-index:9999;
-  background:var(--green);color:var(--white);
-  padding:14px 22px;border-radius:12px;font-size:.9rem;font-weight:500;
-  box-shadow:0 8px 32px rgba(0,0,0,.25);
-  transform:translateY(80px);opacity:0;transition:.35s cubic-bezier(.34,1.56,.64,1);
-  max-width:320px;display:flex;align-items:center;gap:10px;
-}
-.toast.show{transform:translateY(0);opacity:1}
-.toast.success{border-left:4px solid var(--gold)}
-.toast.error{background:var(--red);border-left:4px solid #f8a09a}
+    .page.active {
+      display: block
+    }
 
-/* ── RESPONSIVE ── */
-@media(max-width:600px){
-  .nav-links button:not(.cta){display:none}
-  .form-row{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  .hero{padding:60px 5%}
-  .hero h1{font-size:2rem}
-}
-</style>
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px)
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0)
+      }
+    }
+
+    /* ── HOME HERO ── */
+    .hero {
+      background: var(--green);
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      padding: 80px 5% 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 550px;
+      height: 550px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--green3) 0%, transparent 70%);
+      opacity: .6;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      left: 30%;
+      bottom: -60px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .06;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 560px
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(232, 160, 32, .15);
+      border: 1px solid rgba(232, 160, 32, .3);
+      color: var(--gold);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+      font-style: normal
+    }
+
+    .hero p {
+      color: rgba(255, 255, 255, .7);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 36px;
+      max-width: 440px
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all .2s;
+      text-decoration: none;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--dark)
+    }
+
+    .btn-gold:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232, 160, 32, .35)
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, .3)
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, .08);
+      border-color: rgba(255, 255, 255, .6)
+    }
+
+    /* ── ROUTE CARDS ── */
+    .routes-section {
+      padding: 60px 5%
+    }
+
+    .section-label {
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px
+    }
+
+    .section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 32px
+    }
+
+    .route-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px
+    }
+
+    .route-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      border: 1.5px solid var(--cream2);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: all .25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .route-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: .25s;
+    }
+
+    .route-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(14, 34, 25, .15)
+    }
+
+    .route-card:hover::before {
+      transform: scaleX(1)
+    }
+
+    .route-icon {
+      font-size: 2rem;
+      margin-bottom: 14px
+    }
+
+    .route-name {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px
+    }
+
+    .route-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px
+    }
+
+    .route-price span {
+      font-size: .9rem;
+      color: var(--muted);
+      font-weight: 400
+    }
+
+    .route-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px
+    }
+
+    .route-meta div {
+      font-size: .85rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .route-card .book-btn {
+      margin-top: 20px;
+      width: 100%;
+      padding: 11px;
+      border-radius: 8px;
+      background: var(--green);
+      color: var(--white);
+      font-weight: 600;
+      font-size: .9rem;
+      border: none;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .route-card .book-btn:hover {
+      background: var(--green3)
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: var(--green);
+      padding: 28px 5%;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .info-item {
+      text-align: center;
+      color: var(--white)
+    }
+
+    .info-item strong {
+      display: block;
+      font-family: 'Syne', sans-serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 4px
+    }
+
+    .info-item span {
+      font-size: .85rem;
+      opacity: .7
+    }
+
+    /* ── BOOKING PAGE ── */
+    .page-header {
+      background: var(--green);
+      padding: 50px 5% 40px;
+    }
+
+    .page-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 6px
+    }
+
+    .page-header p {
+      color: rgba(255, 255, 255, .6);
+      font-size: .95rem
+    }
+
+    .breadcrumb {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255, 255, 255, .5);
+      font-size: .82rem;
+      margin-bottom: 16px;
+      cursor: pointer;
+      background: rgba(255, 255, 255, .07);
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .breadcrumb:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .form-wrap {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 5% 60px
+    }
+
+    .form-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2)
+    }
+
+    .form-section-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin: 24px 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--cream2);
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .form-group {
+      margin-bottom: 18px
+    }
+
+    .form-group label {
+      display: block;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 7px
+    }
+
+    .form-group label span {
+      color: var(--red)
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--cream2);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      color: var(--text);
+      background: var(--cream);
+      transition: .2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--green);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(26, 61, 43, .08)
+    }
+
+    .form-group select option {
+      background: var(--white)
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px
+    }
+
+    .amount-box {
+      background: var(--green);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 24px 0;
+    }
+
+    .amount-box span {
+      color: rgba(255, 255, 255, .7);
+      font-size: .9rem
+    }
+
+    .amount-box strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      color: var(--gold);
+      font-weight: 800
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 15px;
+      background: var(--gold);
+      color: var(--dark);
+      border: none;
+      border-radius: 12px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+      letter-spacing: .02em;
+    }
+
+    .submit-btn:hover {
+      background: var(--gold2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(232, 160, 32, .4)
+    }
+
+    .submit-btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none
+    }
+
+    /* ── CONFIRMATION ── */
+    .confirm-wrap {
+      max-width: 520px;
+      margin: 50px auto;
+      padding: 0 5% 80px;
+      text-align: center
+    }
+
+    .confirm-icon {
+      font-size: 4rem;
+      margin-bottom: 16px;
+      animation: pop .4s ease
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.5)
+      }
+
+      to {
+        transform: scale(1)
+      }
+    }
+
+    .confirm-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2)
+    }
+
+    .confirm-card h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      color: var(--green);
+      margin-bottom: 8px
+    }
+
+    .confirm-card p {
+      color: var(--muted);
+      margin-bottom: 24px;
+      font-size: .95rem
+    }
+
+    .ref-badge {
+      background: var(--green);
+      color: var(--gold);
+      font-family: 'Syne', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 12px;
+      display: inline-block;
+      letter-spacing: .1em;
+      margin-bottom: 24px;
+    }
+
+    .payment-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px;
+      text-align: left;
+      margin-bottom: 24px
+    }
+
+    .payment-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 6px
+    }
+
+    .payment-method {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      font-size: .9rem;
+      color: var(--text)
+    }
+
+    .payment-method strong {
+      color: var(--green);
+      display: block;
+      margin-bottom: 4px;
+      font-size: .85rem
+    }
+
+    .payment-method code {
+      font-size: .85rem;
+      color: var(--muted);
+      background: var(--cream2);
+      padding: 2px 6px;
+      border-radius: 4px
+    }
+
+    .wa-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #25D366;
+      color: var(--white);
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: .2s;
+    }
+
+    .wa-btn:hover {
+      background: #20ba5a;
+      transform: translateY(-2px)
+    }
+
+    .back-home {
+      background: none;
+      border: 1.5px solid var(--cream2);
+      color: var(--muted);
+      padding: 12px 24px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      transition: .2s;
+    }
+
+    .back-home:hover {
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    /* ── CHECK BOOKING ── */
+    .check-wrap {
+      max-width: 480px;
+      margin: 50px auto;
+      padding: 0 5% 80px
+    }
+
+    .check-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 36px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2)
+    }
+
+    .check-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 8px
+    }
+
+    .check-card p {
+      color: var(--muted);
+      font-size: .9rem;
+      margin-bottom: 24px
+    }
+
+    .check-input-row {
+      display: flex;
+      gap: 10px
+    }
+
+    .check-input-row input {
+      flex: 1;
+      padding: 12px 14px;
+      border: 1.5px solid var(--cream2);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      outline: none;
+      transition: .2s;
+      background: var(--cream);
+    }
+
+    .check-input-row input:focus {
+      border-color: var(--green);
+      background: var(--white)
+    }
+
+    .check-input-row button {
+      padding: 12px 20px;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .check-input-row button:hover {
+      background: var(--green3)
+    }
+
+    .booking-result {
+      margin-top: 24px;
+      display: none
+    }
+
+    .booking-result.visible {
+      display: block;
+      animation: fadeIn .3s ease
+    }
+
+    .result-card {
+      background: var(--cream);
+      border-radius: 14px;
+      padding: 22px
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--cream2);
+      font-size: .9rem
+    }
+
+    .result-row:last-child {
+      border-bottom: none
+    }
+
+    .result-row label {
+      color: var(--muted);
+      font-weight: 500
+    }
+
+    .result-row strong {
+      color: var(--text);
+      font-weight: 600
+    }
+
+    .status-badge {
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .05em
+    }
+
+    .status-pending {
+      background: rgba(232, 160, 32, .15);
+      color: #b37d10
+    }
+
+    .status-confirmed {
+      background: rgba(46, 102, 69, .15);
+      color: var(--green3)
+    }
+
+    .status-cancelled {
+      background: rgba(192, 57, 43, .12);
+      color: var(--red)
+    }
+
+    .not-found {
+      text-align: center;
+      padding: 32px 0;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 0 5% 80px
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 24px
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2)
+    }
+
+    .contact-card h4 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .contact-card p {
+      font-size: .9rem;
+      color: var(--muted);
+      line-height: 1.7
+    }
+
+    .contact-card a {
+      color: var(--green);
+      font-weight: 600;
+      text-decoration: none
+    }
+
+    .contact-card a:hover {
+      color: var(--gold)
+    }
+
+    .routes-list {
+      margin-top: 8px
+    }
+
+    .routes-list li {
+      font-size: .88rem;
+      color: var(--muted);
+      padding: 4px 0;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 7px
+    }
+
+    .routes-list li::before {
+      content: '\2713';
+      color: var(--gold);
+      font-weight: 700
+    }
+
+    /* ── ADMIN ── */
+    .admin-login-wrap {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 0 5%
+    }
+
+    .admin-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2);
+      text-align: center
+    }
+
+    .admin-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px
+    }
+
+    .admin-card p {
+      color: var(--muted);
+      font-size: .88rem;
+      margin-bottom: 28px
+    }
+
+    .admin-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1.5px solid var(--cream2);
+      border-radius: 10px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .95rem;
+      margin-bottom: 14px;
+      outline: none;
+      background: var(--cream);
+      transition: .2s;
+    }
+
+    .admin-input:focus {
+      border-color: var(--green);
+      background: var(--white)
+    }
+
+    .admin-login-btn {
+      width: 100%;
+      padding: 13px;
+      background: var(--green);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-family: 'Syne', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .admin-login-btn:hover {
+      background: var(--green3)
+    }
+
+    .error-msg {
+      color: var(--red);
+      font-size: .85rem;
+      margin-bottom: 10px;
+      display: none
+    }
+
+    /* ── ADMIN DASHBOARD ── */
+    .dash-header {
+      background: var(--green);
+      padding: 36px 5% 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .dash-header h2 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white)
+    }
+
+    .dash-header p {
+      color: rgba(255, 255, 255, .6);
+      font-size: .85rem;
+      margin-top: 4px
+    }
+
+    .logout-btn {
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .2);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      transition: .2s;
+    }
+
+    .logout-btn:hover {
+      background: rgba(255, 255, 255, .18)
+    }
+
+    .dash-body {
+      padding: 32px 5% 60px
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin-bottom: 32px
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2)
+    }
+
+    .stat-card label {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px
+    }
+
+    .stat-card strong {
+      font-family: 'Syne', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--green)
+    }
+
+    .stat-card.highlight strong {
+      color: var(--gold)
+    }
+
+    .table-card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      border: 1.5px solid var(--cream2);
+      overflow-x: auto
+    }
+
+    .table-card h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 20px
+    }
+
+    .filter-btn {
+      padding: 7px 16px;
+      border-radius: 8px;
+      border: 1.5px solid var(--cream2);
+      background: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .83rem;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--green);
+      color: var(--white);
+      border-color: var(--green)
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 700px;
+      font-size: .87rem
+    }
+
+    th {
+      text-align: left;
+      padding: 10px 14px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 2px solid var(--cream2)
+    }
+
+    td {
+      padding: 13px 14px;
+      border-bottom: 1px solid var(--cream2);
+      color: var(--text)
+    }
+
+    tr:last-child td {
+      border-bottom: none
+    }
+
+    tr:hover td {
+      background: rgba(249, 244, 236, .6)
+    }
+
+    .action-btn {
+      padding: 5px 12px;
+      border-radius: 6px;
+      border: none;
+      font-size: .78rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .2s
+    }
+
+    .action-confirm {
+      background: rgba(46, 102, 69, .1);
+      color: var(--green3)
+    }
+
+    .action-confirm:hover {
+      background: var(--green3);
+      color: var(--white)
+    }
+
+    .action-cancel {
+      background: rgba(192, 57, 43, .08);
+      color: var(--red)
+    }
+
+    .action-cancel:hover {
+      background: var(--red);
+      color: var(--white)
+    }
+
+    .empty-table {
+      text-align: center;
+      padding: 48px;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    /* ── TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 9999;
+      background: var(--green);
+      color: var(--white);
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: .9rem;
+      font-weight: 500;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .25);
+      transform: translateY(80px);
+      opacity: 0;
+      transition: .35s cubic-bezier(.34, 1.56, .64, 1);
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1
+    }
+
+    .toast.success {
+      border-left: 4px solid var(--gold)
+    }
+
+    .toast.error {
+      background: var(--red);
+      border-left: 4px solid #f8a09a
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:600px) {
+      .nav-links button:not(.cta) {
+        display: none
+      }
+
+      .form-row {
+        grid-template-columns: 1fr
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .hero {
+        padding: 60px 5%
+      }
+
+      .hero h1 {
+        font-size: 2rem
+      }
+    }
+
+    /* ══ HAMBURGER ══ */
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:none;background:none}
+    .hamburger span{display:block;width:24px;height:2px;background:var(--white);border-radius:2px;transition:.3s}
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .hamburger.open span:nth-child(2){opacity:0}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .mobile-menu{display:none;position:fixed;top:68px;left:0;right:0;background:var(--dark);z-index:998;flex-direction:column;padding:16px;gap:8px;border-bottom:2px solid var(--green3);animation:fadeIn .2s ease}
+    .mobile-menu.open{display:flex}
+    .mobile-menu button{width:100%;padding:13px 16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:rgba(255,255,255,.85);font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;text-align:left;transition:.2s}
+    .mobile-menu button:hover{background:rgba(255,255,255,.12)}
+    .mobile-menu button.cta{background:var(--gold);color:var(--dark);font-weight:700;border-color:var(--gold)}
+
+    /* ══ MAP PICKER ══ */
+    .map-picker-section{margin-bottom:18px}
+    .map-search-row{display:flex;gap:8px;margin-bottom:8px;position:relative}
+    .map-search-row input{flex:1;padding:11px 14px;border:1.5px solid var(--cream2);border-radius:10px;font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--text);background:var(--cream);transition:.2s;outline:none}
+    .map-search-row input:focus{border-color:var(--green);background:var(--white);box-shadow:0 0 0 3px rgba(26,61,43,.08)}
+    .map-search-btn{padding:11px 16px;background:var(--green);color:var(--white);border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-weight:600;font-size:.85rem;cursor:pointer;white-space:nowrap;transition:.2s;display:flex;align-items:center;gap:6px}
+    .map-search-btn:hover{background:var(--green3)}
+    .map-container{width:100%;height:240px;border-radius:12px;border:1.5px solid var(--cream2);overflow:hidden;position:relative;z-index:1}
+    .map-selected-addr{margin-top:7px;font-size:.82rem;color:var(--green);font-weight:600;min-height:20px;display:flex;align-items:center;gap:5px}
+    .map-pin-hint{font-size:.75rem;color:var(--muted);margin-top:4px}
+    .autocomplete-list{position:absolute;top:calc(100% + 2px);left:0;right:56px;background:var(--white);border:1.5px solid var(--cream2);border-radius:10px;z-index:9999;max-height:200px;overflow-y:auto;box-shadow:0 8px 24px rgba(14,34,25,.12);display:none}
+    .autocomplete-list li{list-style:none;padding:10px 14px;font-size:.86rem;cursor:pointer;color:var(--text);border-bottom:1px solid var(--cream2);transition:.15s}
+    .autocomplete-list li:last-child{border-bottom:none}
+    .autocomplete-list li:hover{background:var(--cream);color:var(--green)}
+    .route-summary-strip{display:none;background:linear-gradient(135deg,var(--green) 0%,var(--green2) 100%);border-radius:12px;padding:14px 18px;margin:14px 0 4px;gap:12px;align-items:center;flex-wrap:wrap}
+    .route-summary-strip.visible{display:flex}
+    .pin-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+    .from-dot{background:var(--gold)}
+    .to-dot{background:#5dd8a0}
+    .addr-block .addr-label{font-size:.68rem;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.45)}
+    .addr-block .addr-text{font-size:.82rem;color:rgba(255,255,255,.9);line-height:1.4}
+    .sum-divider{width:1px;height:32px;background:rgba(255,255,255,.15);margin:0 4px;flex-shrink:0}
+    .leaflet-pane{z-index:2!important}
+    .leaflet-control{z-index:3!important}
+    .leaflet-popup{z-index:4!important}
+
+    /* ══ EXTRA RESPONSIVE ══ */
+    @media(max-width:900px){.form-wrap{padding:0 4% 60px}.contact-grid{grid-template-columns:1fr}}
+    @media(max-width:600px){
+      nav{padding:0 4%}
+      .nav-links{display:none}
+      .hamburger{display:flex}
+      .hero{padding:48px 4% 56px;min-height:auto}
+      .hero h1{font-size:clamp(1.8rem,7vw,2.4rem)}
+      .hero p{font-size:.95rem}
+      .hero-btns{flex-direction:column;gap:10px}
+      .hero-btns .btn{justify-content:center;width:100%}
+      .info-strip{padding:20px 4%;gap:12px}
+      .info-item strong{font-size:1.2rem}
+      .routes-section{padding:40px 4%}
+      .route-grid{grid-template-columns:1fr}
+      .section-title{font-size:1.5rem}
+      .form-wrap{max-width:100%;margin:16px 0;padding:0 4% 40px}
+      .form-card{padding:20px 16px;border-radius:14px}
+      .form-row{grid-template-columns:1fr;gap:12px}
+      .page-header{padding:32px 4% 24px}
+      .page-header h2{font-size:1.5rem}
+      .confirm-wrap{padding:0 4% 60px;margin:24px auto}
+      .confirm-card{padding:22px 16px}
+      .ref-badge{font-size:1.3rem;padding:12px 20px}
+      .check-wrap{padding:0 4% 60px}
+      .check-card{padding:22px 16px}
+      .check-input-row{flex-direction:column}
+      .check-input-row input,.check-input-row button{width:100%}
+      .contact-wrap{padding:0 4% 60px}
+      .contact-card{padding:18px}
+      .admin-login-wrap{padding:0 4%}
+      .admin-card{padding:26px 16px}
+      .dash-header{padding:20px 4%;flex-direction:column;align-items:flex-start}
+      .dash-body{padding:18px 4% 40px}
+      .stats-row{grid-template-columns:1fr 1fr;gap:10px}
+      .stat-card{padding:14px}
+      .stat-card strong{font-size:1.5rem}
+      .toast{bottom:14px;right:14px;left:14px;max-width:none}
+      .map-container{height:200px}
+      table{font-size:.78rem}
+      th,td{padding:9px 8px}
+    }
+    @media(max-width:380px){.hero h1{font-size:1.55rem}.ref-badge{font-size:1rem;padding:10px 14px}}
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo" onclick="showPage('home')">Rides<span>ZW</span></div>
-  <div class="nav-links">
-    <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
-    <button onclick="showPage('book')" id="nav-book">Book</button>
-    <button onclick="showPage('check')" id="nav-check">My Booking</button>
-    <button onclick="showPage('contact')" id="nav-contact">Contact</button>
-    <button onclick="showPage('admin-login')" id="nav-admin" class="cta">Admin</button>
+  <!-- NAV -->
+  <nav>
+    <div class="logo" onclick="showPage('home');closeMobileMenu()">Rides<span>ZW</span></div>
+    <div class="nav-links">
+      <button onclick="showPage('home')" id="nav-home" class="active">Home</button>
+      <button onclick="showPage('book')" id="nav-book">Book</button>
+      <button onclick="showPage('check')" id="nav-check">My Booking</button>
+      <button onclick="showPage('contact')" id="nav-contact">Contact</button>
+      <button onclick="showPage('admin-login')" id="nav-admin" class="cta">Admin</button>
+    </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="mobile-menu" id="mobile-menu">
+    <button onclick="showPage('home');closeMobileMenu()">&#8962; Home</button>
+    <button onclick="showPage('book');closeMobileMenu()">&#43; Book a Seat</button>
+    <button onclick="showPage('check');closeMobileMenu()">&#128196; My Booking</button>
+    <button onclick="showPage('contact');closeMobileMenu()">&#9742; Contact</button>
+    <button class="cta" onclick="showPage('admin-login');closeMobileMenu()">&#9881; Admin</button>
   </div>
-</nav>
 
-<!-- ══ HOME PAGE ══ -->
-<div class="page active" id="page-home">
-  <div class="hero">
-    <div class="hero-content">
-      <div class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg> Zimbabwe's trusted route</div>
-      <h1>Travel between<br><em>Masvingo</em> &<br>Harare — simply.</h1>
-      <p>Affordable, daily bus &amp; kombi transport connecting Masvingo, Harare, and surrounding towns. Book your seat in under a minute.</p>
-      <div class="hero-btns">
-        <button class="btn btn-gold" onclick="showPage('book')">Book a Seat →</button>
-        <button class="btn btn-outline" onclick="showPage('check')">Check Booking</button>
+  <!-- ══ HOME PAGE ══ -->
+  <div class="page active" id="page-home">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-tag"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+            <path d="M2 12h20" />
+          </svg> Zimbabwe's trusted route</div>
+        <h1>Travel between<br><em>Masvingo</em> &<br>Harare — simply.</h1>
+        <p>Affordable, daily bus &amp; kombi transport connecting Masvingo, Harare, and surrounding towns. Book your
+          seat in under a minute.</p>
+        <div class="hero-btns">
+          <button class="btn btn-gold" onclick="showPage('book')">Book a Seat →</button>
+          <button class="btn btn-outline" onclick="showPage('check')">Check Booking</button>
+        </div>
       </div>
+    </div>
+
+    <div class="info-strip">
+      <div class="info-item"><strong>$15</strong><span>Harare ↔ Masvingo</span></div>
+      <div class="info-item"><strong>4 hrs</strong><span>Journey time</span></div>
+      <div class="info-item"><strong>Daily</strong><span>Departures</span></div>
+      <div class="info-item"><strong>7</strong><span>Passengers max</span></div>
+      <div class="info-item"><strong>6AM–8PM</strong><span>Operating hours</span></div>
+    </div>
+
+    <div class="routes-section">
+      <div class="section-label">Available Routes</div>
+      <div class="section-title">Where do you want to go?</div>
+      <div class="route-grid" id="route-grid"></div>
     </div>
   </div>
 
-  <div class="info-strip">
-    <div class="info-item"><strong>$15</strong><span>Harare ↔ Masvingo</span></div>
-    <div class="info-item"><strong>4 hrs</strong><span>Journey time</span></div>
-    <div class="info-item"><strong>Daily</strong><span>Departures</span></div>
-    <div class="info-item"><strong>7</strong><span>Passengers max</span></div>
-    <div class="info-item"><strong>6AM–8PM</strong><span>Operating hours</span></div>
-  </div>
-
-  <div class="routes-section">
-    <div class="section-label">Available Routes</div>
-    <div class="section-title">Where do you want to go?</div>
-    <div class="route-grid" id="route-grid"></div>
-  </div>
-</div>
-
-<!-- ══ BOOK PAGE ══ -->
-<div class="page" id="page-book">
-  <div class="page-header">
-    <button class="breadcrumb" onclick="showPage('home')">← Home</button>
-    <h2>Book Your Seat</h2>
-    <p>Fill in the details below — takes less than a minute.</p>
-  </div>
-  <div class="form-wrap">
-    <div class="form-card">
-      <div class="form-section-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg> Journey Details</div>
-      <div class="form-group">
-        <label>Route <span>*</span></label>
-        <select id="f-route" onchange="calcAmount()">
-          <option value="">Choose a route…</option>
-          <option value="Harare → Masvingo|15">Harare → Masvingo — $15</option>
-          <option value="Masvingo → Harare|15">Masvingo → Harare — $15</option>
-          <option value="Masvingo Local|10">Masvingo Local — $10</option>
-          <option value="Harare → Mutare|20">Harare → Mutare — $20</option>
-          <option value="Bulawayo → Harare|25">Bulawayo → Harare — $25</option>
-          <option value="Gweru → Masvingo|12">Gweru → Masvingo — $12</option>
-        </select>
-      </div>
-      <div class="form-row">
+  <!-- ══ BOOK PAGE ══ -->
+  <div class="page" id="page-book">
+    <div class="page-header">
+      <button class="breadcrumb" onclick="showPage('home')">← Home</button>
+      <h2>Book Your Seat</h2>
+      <p>Fill in the details below — takes less than a minute.</p>
+    </div>
+    <div class="form-wrap">
+      <div class="form-card">
+        <div class="form-section-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
+            <line x1="9" y1="3" x2="9" y2="18" />
+            <line x1="15" y1="6" x2="15" y2="21" />
+          </svg> Journey Details</div>
         <div class="form-group">
-          <label>Pickup Location <span>*</span></label>
-          <select id="f-pickup">
-            <option value="">Choose pickup…</option>
-            <option>Masvingo City Centre</option>
-            <option>Harare City Centre</option>
-            <option>Roadport (Harare)</option>
-            <option>Mucheke Bus Terminus</option>
-            <option>Chevron Hotel</option>
-            <option>Flamboyant Hotel</option>
-            <option>Great Zimbabwe</option>
-            <option>Lake Mutirikwi</option>
-            <option>Masvingo Teachers College</option>
-            <option>Great Zimbabwe University</option>
+          <label>Route <span>*</span></label>
+          <select id="f-route" onchange="calcAmount()">
+            <option value="">Choose a route…</option>
+            <option value="Harare → Masvingo|15">Harare → Masvingo — $15</option>
+            <option value="Masvingo → Harare|15">Masvingo → Harare — $15</option>
+            <option value="Masvingo Local|10">Masvingo Local — $10</option>
+            <option value="Harare → Mutare|20">Harare → Mutare — $20</option>
+            <option value="Bulawayo → Harare|25">Bulawayo → Harare — $25</option>
+            <option value="Gweru → Masvingo|12">Gweru → Masvingo — $12</option>
           </select>
         </div>
+        <!-- PICKUP MAP PICKER -->
+        <div class="map-picker-section">
+          <div class="form-group" style="margin-bottom:6px">
+            <label>Pickup Location <span style="color:var(--red)">*</span></label>
+            <div class="map-search-row" id="pickup-search-wrap">
+              <input type="text" id="pickup-search" placeholder="Search pickup address…" autocomplete="off"/>
+              <button class="map-search-btn" onclick="doMapSearch('pickup')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Find
+              </button>
+              <ul class="autocomplete-list" id="pickup-autocomplete"></ul>
+            </div>
+            <div class="map-pin-hint">Tap the map to drop a pin, or drag the marker to adjust</div>
+          </div>
+          <div class="map-container" id="pickup-map"></div>
+          <div class="map-selected-addr">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C12.95 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+            <span id="pickup-addr-text" style="color:var(--muted);font-weight:400">No location selected</span>
+          </div>
+          <input type="hidden" id="f-pickup"/>
+        </div>
+
+        <!-- DROPOFF MAP PICKER -->
+        <div class="map-picker-section">
+          <div class="form-group" style="margin-bottom:6px">
+            <label>Drop-off / Destination <span style="color:var(--red)">*</span></label>
+            <div class="map-search-row" id="dropoff-search-wrap">
+              <input type="text" id="dropoff-search" placeholder="Search drop-off address…" autocomplete="off"/>
+              <button class="map-search-btn" onclick="doMapSearch('dropoff')">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Find
+              </button>
+              <ul class="autocomplete-list" id="dropoff-autocomplete"></ul>
+            </div>
+            <div class="map-pin-hint">Tap the map to drop a pin, or drag the marker to adjust</div>
+          </div>
+          <div class="map-container" id="dropoff-map"></div>
+          <div class="map-selected-addr">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2a8 8 0 0 0-8 8c0 5.4 7.05 11.5 7.35 11.76a1 1 0 0 0 1.3 0C12.95 21.5 20 15.4 20 10a8 8 0 0 0-8-8z"/></svg>
+            <span id="dropoff-addr-text" style="color:var(--muted);font-weight:400">No location selected</span>
+          </div>
+          <input type="hidden" id="f-dropoff"/>
+        </div>
+
+        <!-- ROUTE SUMMARY -->
+        <div class="route-summary-strip" id="route-summary">
+          <div class="pin-dot from-dot"></div>
+          <div class="addr-block"><div class="addr-label">Pickup</div><div class="addr-text" id="sum-pickup">—</div></div>
+          <div class="sum-divider"></div>
+          <div class="pin-dot to-dot"></div>
+          <div class="addr-block"><div class="addr-label">Drop-off</div><div class="addr-text" id="sum-dropoff">—</div></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Travel Date <span>*</span></label>
+            <input type="date" id="f-date">
+          </div>
+          <div class="form-group">
+            <label>Departure Time <span>*</span></label>
+            <select id="f-time">
+              <option value="">Choose time…</option>
+              <option>06:00 AM</option>
+              <option>07:00 AM</option>
+              <option>08:00 AM</option>
+              <option>09:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>01:00 PM</option>
+              <option>02:00 PM</option>
+              <option>03:00 PM</option>
+              <option>04:00 PM</option>
+              <option>05:00 PM</option>
+              <option>06:00 PM</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-section-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg> Passenger Details</div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name <span>*</span></label>
+            <input type="text" id="f-name" placeholder="e.g. Tinashe Moyo">
+          </div>
+          <div class="form-group">
+            <label>Phone Number <span>*</span></label>
+            <input type="tel" id="f-phone" placeholder="e.g. +263771234567">
+          </div>
+        </div>
         <div class="form-group">
-          <label>Drop-off / Destination <span>*</span></label>
-          <select id="f-dropoff">
-            <option value="">Choose destination…</option>
-            <option>Masvingo City Centre</option>
-            <option>Harare City Centre</option>
-            <option>Roadport (Harare)</option>
-            <option>Mucheke Bus Terminus</option>
-            <option>Chevron Hotel</option>
-            <option>Flamboyant Hotel</option>
-            <option>Great Zimbabwe</option>
-            <option>Lake Mutirikwi</option>
-            <option>Masvingo Teachers College</option>
-            <option>Great Zimbabwe University</option>
+          <label>Number of Passengers <span>*</span></label>
+          <select id="f-pax" onchange="calcAmount()">
+            <option value="1">1 passenger</option>
+            <option value="2">2 passengers</option>
+            <option value="3">3 passengers</option>
+            <option value="4">4 passengers</option>
+            <option value="5">5 passengers</option>
+            <option value="6">6 passengers</option>
+            <option value="7">7 passengers</option>
           </select>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Travel Date <span>*</span></label>
-          <input type="date" id="f-date">
-        </div>
-        <div class="form-group">
-          <label>Departure Time <span>*</span></label>
-          <select id="f-time">
-            <option value="">Choose time…</option>
-            <option>06:00 AM</option>
-            <option>07:00 AM</option>
-            <option>08:00 AM</option>
-            <option>09:00 AM</option>
-            <option>10:00 AM</option>
-            <option>11:00 AM</option>
-            <option>12:00 PM</option>
-            <option>01:00 PM</option>
-            <option>02:00 PM</option>
-            <option>03:00 PM</option>
-            <option>04:00 PM</option>
-            <option>05:00 PM</option>
-            <option>06:00 PM</option>
-          </select>
-        </div>
-      </div>
 
-      <div class="form-section-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> Passenger Details</div>
-      <div class="form-row">
-        <div class="form-group">
-          <label>Full Name <span>*</span></label>
-          <input type="text" id="f-name" placeholder="e.g. Tinashe Moyo">
+        <div class="amount-box">
+          <span>Total Amount</span>
+          <strong id="amount-display">$0</strong>
         </div>
-        <div class="form-group">
-          <label>Phone Number <span>*</span></label>
-          <input type="tel" id="f-phone" placeholder="e.g. +263771234567">
-        </div>
-      </div>
-      <div class="form-group">
-        <label>Number of Passengers <span>*</span></label>
-        <select id="f-pax" onchange="calcAmount()">
-          <option value="1">1 passenger</option>
-          <option value="2">2 passengers</option>
-          <option value="3">3 passengers</option>
-          <option value="4">4 passengers</option>
-          <option value="5">5 passengers</option>
-          <option value="6">6 passengers</option>
-          <option value="7">7 passengers</option>
-        </select>
-      </div>
 
-      <div class="amount-box">
-        <span>Total Amount</span>
-        <strong id="amount-display">$0</strong>
+        <button class="submit-btn" onclick="submitBooking()">Confirm Booking →</button>
       </div>
-
-      <button class="submit-btn" onclick="submitBooking()">Confirm Booking →</button>
     </div>
   </div>
-</div>
 
-<!-- ══ CONFIRMATION PAGE ══ -->
-<div class="page" id="page-confirm">
-  <div class="confirm-wrap">
-    <div class="confirm-icon"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#2e6645" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-    <div class="confirm-card">
-      <h2>Booking Confirmed!</h2>
-      <p>Your seat has been reserved. Share your reference number when boarding.</p>
-      <div class="ref-badge" id="conf-ref">MT00000</div>
-      <div style="font-size:.85rem;color:var(--muted);margin-bottom:20px" id="conf-summary"></div>
-      <div class="payment-card">
-        <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Complete Your Payment</h4>
-        <div class="payment-method">
-          <strong>EcoCash</strong>
-          Dial <code>*151#</code> → Send Money → <code>0786532334</code><br>
-          Use your reference number as the reference.
+  <!-- ══ CONFIRMATION PAGE ══ -->
+  <div class="page" id="page-confirm">
+    <div class="confirm-wrap">
+      <div class="confirm-icon"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#2e6645"
+          stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+          <polyline points="22 4 12 14.01 9 11.01" />
+        </svg></div>
+      <div class="confirm-card">
+        <h2>Booking Confirmed!</h2>
+        <p>Your seat has been reserved. Share your reference number when boarding.</p>
+        <div class="ref-badge" id="conf-ref">MT00000</div>
+        <div style="font-size:.85rem;color:var(--muted);margin-bottom:20px" id="conf-summary"></div>
+        <div class="payment-card">
+          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+              <line x1="1" y1="10" x2="23" y2="10" />
+            </svg> Complete Your Payment</h4>
+          <div class="payment-method">
+            <strong>EcoCash</strong>
+            Dial <code>*151#</code> → Send Money → <code>0786532334</code><br>
+            Use your reference number as the reference.
+          </div>
+          <div class="payment-method">
+            <strong>Bank Transfer / Cash on Boarding</strong>
+            Contact us on WhatsApp to arrange.
+          </div>
         </div>
-        <div class="payment-method">
-          <strong>Bank Transfer / Cash on Boarding</strong>
-          Contact us on WhatsApp to arrange.
-        </div>
-      </div>
-      <a class="wa-btn" id="wa-link" href="#" target="_blank">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp to Pay — +263786532334
-      </a>
-      <button class="back-home" onclick="showPage('home')">← Back to Home</button>
-    </div>
-  </div>
-</div>
-
-<!-- ══ CHECK BOOKING PAGE ══ -->
-<div class="page" id="page-check">
-  <div class="page-header">
-    <button class="breadcrumb" onclick="showPage('home')">← Home</button>
-    <h2>Check Your Booking</h2>
-    <p>Enter your reference number to see your booking status.</p>
-  </div>
-  <div class="check-wrap">
-    <div class="check-card">
-      <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg> Booking Lookup</h3>
-      <p>Your reference number was shown after booking — e.g. <strong>MT12345</strong></p>
-      <div class="check-input-row">
-        <input type="text" id="check-ref" placeholder="Enter reference e.g. MT12345" onkeyup="if(event.key==='Enter')checkBooking()">
-        <button onclick="checkBooking()">Search</button>
-      </div>
-      <div class="booking-result" id="booking-result"></div>
-    </div>
-  </div>
-</div>
-
-<!-- ══ CONTACT PAGE ══ -->
-<div class="page" id="page-contact">
-  <div class="page-header">
-    <button class="breadcrumb" onclick="showPage('home')">← Home</button>
-    <h2>Contact Us</h2>
-    <p>We're available every day, 6AM to 8PM.</p>
-  </div>
-  <div class="contact-wrap">
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6.72 6.72l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Phone &amp; WhatsApp</h4>
-        <p><a href="tel:+263786532334">+263 786 532 334</a></p>
-        <p style="margin-top:10px;font-size:.85rem">Available daily<br>6:00 AM – 8:00 PM</p>
-        <a href="https://wa.me/263786532334" target="_blank" class="wa-btn" style="margin-top:16px;font-size:.85rem;padding:10px">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          Chat on WhatsApp
+        <a class="wa-btn" id="wa-link" href="#" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+          </svg>
+          WhatsApp to Pay — +263786532334
         </a>
+        <button class="back-home" onclick="showPage('home')">← Back to Home</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CHECK BOOKING PAGE ══ -->
+  <div class="page" id="page-check">
+    <div class="page-header">
+      <button class="breadcrumb" onclick="showPage('home')">← Home</button>
+      <h2>Check Your Booking</h2>
+      <p>Enter your reference number to see your booking status.</p>
+    </div>
+    <div class="check-wrap">
+      <div class="check-card">
+        <h3><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg> Booking Lookup</h3>
+        <p>Your reference number was shown after booking — e.g. <strong>MT12345</strong></p>
+        <div class="check-input-row">
+          <input type="text" id="check-ref" placeholder="Enter reference e.g. MT12345"
+            onkeyup="if(event.key==='Enter')checkBooking()">
+          <button onclick="checkBooking()">Search</button>
+        </div>
+        <div class="booking-result" id="booking-result"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CONTACT PAGE ══ -->
+  <div class="page" id="page-contact">
+    <div class="page-header">
+      <button class="breadcrumb" onclick="showPage('home')">← Home</button>
+      <h2>Contact Us</h2>
+      <p>We're available every day, 6AM to 8PM.</p>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.18a2 2 0 0 1 1.99-2.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.37a16 16 0 0 0 6.72 6.72l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg> Phone &amp; WhatsApp</h4>
+          <p><a href="tel:+263786532334">+263 786 532 334</a></p>
+          <p style="margin-top:10px;font-size:.85rem">Available daily<br>6:00 AM – 8:00 PM</p>
+          <a href="https://wa.me/263786532334" target="_blank" rel="noopener" class="wa-btn"
+            style="margin-top:16px;font-size:.85rem;padding:10px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+            </svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+        <div class="contact-card">
+          <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13" rx="1" />
+              <path d="M16 8h4l3 4v4h-7V8z" />
+              <circle cx="5.5" cy="18.5" r="2.5" />
+              <circle cx="18.5" cy="18.5" r="2.5" />
+            </svg> Our Routes</h4>
+          <ul class="routes-list">
+            <li>Harare ↔ Masvingo (Daily)</li>
+            <li>Masvingo Local Transport</li>
+            <li>Harare → Mutare</li>
+            <li>Bulawayo → Harare</li>
+            <li>Gweru → Masvingo</li>
+          </ul>
+        </div>
       </div>
       <div class="contact-card">
-        <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Our Routes</h4>
-        <ul class="routes-list">
-          <li>Harare ↔ Masvingo (Daily)</li>
-          <li>Masvingo Local Transport</li>
-          <li>Harare → Mutare</li>
-          <li>Bulawayo → Harare</li>
-          <li>Gweru → Masvingo</li>
-        </ul>
-      </div>
-    </div>
-    <div class="contact-card">
-      <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg> Payment Methods</h4>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:4px">
-        <div class="payment-method"><strong>EcoCash</strong>Dial *151# → Send Money → 0786532334</div>
-        <div class="payment-method"><strong>Bank Transfer</strong>Contact us on WhatsApp for account details</div>
-        <div class="payment-method"><strong>Cash on Boarding</strong>Pay the driver when you board</div>
+        <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
+            <line x1="1" y1="10" x2="23" y2="10" />
+          </svg> Payment Methods</h4>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:4px">
+          <div class="payment-method"><strong>EcoCash</strong>Dial *151# → Send Money → 0786532334</div>
+          <div class="payment-method"><strong>Bank Transfer</strong>Contact us on WhatsApp for account details</div>
+          <div class="payment-method"><strong>Cash on Boarding</strong>Pay the driver when you board</div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- ══ ADMIN LOGIN PAGE ══ -->
-<div class="page" id="page-admin-login">
-  <div class="page-header">
-    <button class="breadcrumb" onclick="showPage('home')">← Home</button>
-    <h2>Admin Access</h2>
-    <p>Staff login only.</p>
-  </div>
-  <div class="admin-login-wrap">
-    <div class="admin-card">
-      <div style="margin-bottom:16px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
-      <h3>Admin Login</h3>
-      <p>Enter the admin password to access the dashboard.</p>
-      <div class="error-msg" id="login-error">Incorrect password. Try again.</div>
-      <input class="admin-input" type="password" id="admin-pass" placeholder="Password" onkeyup="if(event.key==='Enter')adminLogin()">
-      <button class="admin-login-btn" onclick="adminLogin()">Login →</button>
+  <!-- ══ ADMIN LOGIN PAGE ══ -->
+  <div class="page" id="page-admin-login">
+    <div class="page-header">
+      <button class="breadcrumb" onclick="showPage('home')">← Home</button>
+      <h2>Admin Access</h2>
+      <p>Staff login only.</p>
     </div>
-  </div>
-</div>
-
-<!-- ══ ADMIN DASHBOARD PAGE ══ -->
-<div class="page" id="page-admin">
-  <div class="dash-header">
-    <div>
-      <h2>Admin Dashboard</h2>
-      <p>RidesZW Booking Management</p>
-    </div>
-    <button class="logout-btn" onclick="adminLogout()">Logout</button>
-  </div>
-  <div class="dash-body">
-    <div class="stats-row">
-      <div class="stat-card"><label>Total Bookings</label><strong id="s-total">0</strong></div>
-      <div class="stat-card"><label>Pending Payment</label><strong id="s-pending">0</strong></div>
-      <div class="stat-card"><label>Confirmed</label><strong id="s-confirmed">0</strong></div>
-      <div class="stat-card"><label>Cancelled</label><strong id="s-cancelled">0</strong></div>
-      <div class="stat-card highlight"><label>Total Revenue</label><strong id="s-revenue">$0</strong></div>
-    </div>
-    <div class="table-card">
-      <h3>All Bookings
-        <span style="font-size:.8rem;font-weight:400;color:var(--muted)" id="table-count"></span>
-      </h3>
-      <div class="filter-row">
-        <button class="filter-btn active" onclick="filterTable('all',this)">All</button>
-        <button class="filter-btn" onclick="filterTable('PENDING',this)">Pending</button>
-        <button class="filter-btn" onclick="filterTable('CONFIRMED',this)">Confirmed</button>
-        <button class="filter-btn" onclick="filterTable('CANCELLED',this)">Cancelled</button>
+    <div class="admin-login-wrap">
+      <div class="admin-card">
+        <div style="margin-bottom:16px"><svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b"
+            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          </svg></div>
+        <h3>Admin Login</h3>
+        <p>Enter the admin password to access the dashboard.</p>
+        <div class="error-msg" id="login-error">Incorrect password. Try again.</div>
+        <input class="admin-input" type="password" id="admin-pass" placeholder="Password"
+          onkeyup="if(event.key==='Enter')adminLogin()">
+        <button class="admin-login-btn" onclick="adminLogin()">Login →</button>
       </div>
-      <table>
-        <thead>
-          <tr>
-            <th>Ref</th><th>Passenger</th><th>Phone</th><th>Route</th>
-            <th>Date</th><th>Pax</th><th>Amount</th><th>Status</th><th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="bookings-tbody"></tbody>
-      </table>
     </div>
   </div>
-</div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
+  <!-- ══ ADMIN DASHBOARD PAGE ══ -->
+  <div class="page" id="page-admin">
+    <div class="dash-header">
+      <div>
+        <h2>Admin Dashboard</h2>
+        <p>RidesZW Booking Management</p>
+      </div>
+      <button class="logout-btn" onclick="adminLogout()">Logout</button>
+    </div>
+    <div class="dash-body">
+      <div class="stats-row">
+        <div class="stat-card"><label>Total Bookings</label><strong id="s-total">0</strong></div>
+        <div class="stat-card"><label>Pending Payment</label><strong id="s-pending">0</strong></div>
+        <div class="stat-card"><label>Confirmed</label><strong id="s-confirmed">0</strong></div>
+        <div class="stat-card"><label>Cancelled</label><strong id="s-cancelled">0</strong></div>
+        <div class="stat-card highlight"><label>Total Revenue</label><strong id="s-revenue">$0</strong></div>
+      </div>
+      <div class="table-card">
+        <h3>All Bookings
+          <span style="font-size:.8rem;font-weight:400;color:var(--muted)" id="table-count"></span>
+        </h3>
+        <div class="filter-row">
+          <button class="filter-btn active" onclick="filterTable('all',this)">All</button>
+          <button class="filter-btn" onclick="filterTable('PENDING',this)">Pending</button>
+          <button class="filter-btn" onclick="filterTable('CONFIRMED',this)">Confirmed</button>
+          <button class="filter-btn" onclick="filterTable('CANCELLED',this)">Cancelled</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>Ref</th>
+              <th>Passenger</th>
+              <th>Phone</th>
+              <th>Route</th>
+              <th>Date</th>
+              <th>Pax</th>
+              <th>Amount</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 
-<script>
-// ── DATA ──
-const ROUTES = [
-  {name:'Harare → Masvingo', price:15, duration:'4 hrs', icon:'bus', desc:'Daily direct service'},
-  {name:'Masvingo → Harare', price:15, duration:'4 hrs', icon:'bus', desc:'Daily direct service'},
-  {name:'Masvingo Local',    price:10, duration:'Varies', icon:'van', desc:'Multiple drop-offs'},
-  {name:'Harare → Mutare',  price:20, duration:'3.5 hrs', icon:'coach', desc:'Eastern highlands route'},
-  {name:'Bulawayo → Harare',price:25, duration:'5 hrs', icon:'bus', desc:'Long-distance express'},
-  {name:'Gweru → Masvingo', price:12, duration:'2 hrs', icon:'van', desc:'Midlands connector'},
-];
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
 
-let bookings = JSON.parse(localStorage.getItem('rzw_bookings')||'[]');
-let activeFilter = 'all';
+  <script>
+    // ── DATA ──
+    const ROUTES = [
+      { name: 'Harare → Masvingo', price: 15, duration: '4 hrs', icon: 'bus', desc: 'Daily direct service' },
+      { name: 'Masvingo → Harare', price: 15, duration: '4 hrs', icon: 'bus', desc: 'Daily direct service' },
+      { name: 'Masvingo Local', price: 10, duration: 'Varies', icon: 'van', desc: 'Multiple drop-offs' },
+      { name: 'Harare → Mutare', price: 20, duration: '3.5 hrs', icon: 'coach', desc: 'Eastern highlands route' },
+      { name: 'Bulawayo → Harare', price: 25, duration: '5 hrs', icon: 'bus', desc: 'Long-distance express' },
+      { name: 'Gweru → Masvingo', price: 12, duration: '2 hrs', icon: 'van', desc: 'Midlands connector' },
+    ];
 
-// ── UTILS ──
-function save(){ localStorage.setItem('rzw_bookings', JSON.stringify(bookings)); }
-function genRef(){ return 'MT' + String(Date.now()).slice(-6); }
-function toast(msg, type='success'){
-  const t = document.getElementById('toast');
-  t.textContent = msg; t.className = 'toast '+type;
-  requestAnimationFrame(()=>t.classList.add('show'));
-  setTimeout(()=>t.classList.remove('show'), 3200);
-}
-function $(id){ return document.getElementById(id); }
+    let bookings = JSON.parse(localStorage.getItem('rzw_bookings') || '[]');
+    let activeFilter = 'all';
 
-// ── NAVIGATION ──
-function showPage(name){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-links button').forEach(b=>b.classList.remove('active'));
-  $('page-'+name).classList.add('active');
-  const nb = $('nav-'+name.split('-')[0]);
-  if(nb) nb.classList.add('active');
-  window.scrollTo(0,0);
-}
+    // ── UTILS ──
+    function save() { localStorage.setItem('rzw_bookings', JSON.stringify(bookings)); }
+    function genRef() { return 'MT' + String(Date.now()).slice(-6); }
+    function toast(msg, type = 'success') {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.className = 'toast ' + type;
+      requestAnimationFrame(() => t.classList.add('show'));
+      setTimeout(() => t.classList.remove('show'), 3200);
+    }
+    function $(id) { return document.getElementById(id); }
 
-// ── HOME: RENDER ROUTES ──
-function renderRoutes(){
-  const grid = $('route-grid');
-  grid.innerHTML = ROUTES.map(r=>`
+    // ── NAVIGATION ──
+    function showPage(name) {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // Init maps when booking page opens
+      if (name === 'book') { setTimeout(function(){ initMaps(); if(pickupMap) pickupMap.invalidateSize(); if(dropoffMap) dropoffMap.invalidateSize(); }, 150); }
+      closeMobileMenu();
+      document.querySelectorAll('.nav-links button').forEach(b => b.classList.remove('active'));
+      $('page-' + name).classList.add('active');
+      const nb = $('nav-' + name.split('-')[0]);
+      if (nb) nb.classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    // ── HOME: RENDER ROUTES ──
+    function renderRoutes() {
+      const grid = $('route-grid');
+      grid.innerHTML = ROUTES.map(r => `
     <div class="route-card">
-      <div class="route-icon">${r.icon==='bus'?'<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 11h20"/><path d="M8 17v2M16 17v2"/><circle cx="8" cy="17" r="1"/><circle cx="16" cy="17" r="1"/></svg>':r.icon==='van'?'<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>':'<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="12" rx="2"/><path d="M2 10h20"/><path d="M7 19v-2M17 19v-2"/><circle cx="7" cy="19" r="1"/><circle cx="17" cy="19" r="1"/></svg>'}</div>
+      <div class="route-icon">${r.icon === 'bus' ? '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M2 11h20"/><path d="M8 17v2M16 17v2"/><circle cx="8" cy="17" r="1"/><circle cx="16" cy="17" r="1"/></svg>' : r.icon === 'van' ? '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>' : '<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1a3d2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="12" rx="2"/><path d="M2 10h20"/><path d="M7 19v-2M17 19v-2"/><circle cx="7" cy="19" r="1"/><circle cx="17" cy="19" r="1"/></svg>'}</div>
       <div class="route-name">${r.name}</div>
       <div class="route-price">$${r.price} <span>/ person</span></div>
       <div class="route-meta">
@@ -693,81 +1775,81 @@ function renderRoutes(){
       <button class="book-btn" onclick="prefillRoute('${r.name}|${r.price}')">Book this route →</button>
     </div>
   `).join('');
-}
+    }
 
-function prefillRoute(val){
-  $('f-route').value = val;
-  calcAmount();
-  showPage('book');
-}
+    function prefillRoute(val) {
+      $('f-route').value = val;
+      calcAmount();
+      showPage('book');
+    }
 
-// ── BOOKING ──
-function calcAmount(){
-  const sel = $('f-route').value;
-  const pax = parseInt($('f-pax').value)||1;
-  if(!sel){ $('amount-display').textContent='$0'; return; }
-  const price = parseInt(sel.split('|')[1])||0;
-  $('amount-display').textContent = '$'+(price*pax);
-}
+    // ── BOOKING ──
+    function calcAmount() {
+      const sel = $('f-route').value;
+      const pax = parseInt($('f-pax').value) || 1;
+      if (!sel) { $('amount-display').textContent = '$0'; return; }
+      const price = parseInt(sel.split('|')[1]) || 0;
+      $('amount-display').textContent = '$' + (price * pax);
+    }
 
-function submitBooking(){
-  const route   = $('f-route').value;
-  const pickup  = $('f-pickup').value;
-  const dropoff = $('f-dropoff').value;
-  const date    = $('f-date').value;
-  const time    = $('f-time').value;
-  const name    = $('f-name').value.trim();
-  const phone   = $('f-phone').value.trim();
-  const pax     = $('f-pax').value;
+    function submitBooking() {
+      const route = $('f-route').value;
+      const pickup = $('f-pickup').value;
+      const dropoff = $('f-dropoff').value;
+      const date = $('f-date').value;
+      const time = $('f-time').value;
+      const name = $('f-name').value.trim();
+      const phone = $('f-phone').value.trim();
+      const pax = $('f-pax').value;
 
-  if(!route||!pickup||!dropoff||!date||!time||!name||!phone){
-    toast('Please fill in all required fields.','error'); return;
-  }
-  if(pickup===dropoff){
-    toast('Pickup and drop-off cannot be the same.','error'); return;
-  }
-  const today = new Date(); today.setHours(0,0,0,0);
-  if(new Date(date)<today){
-    toast('Travel date cannot be in the past.','error'); return;
-  }
+      if (!route || !pickup || !dropoff || !date || !time || !name || !phone) {
+        toast('Please fill in all required fields.', 'error'); return;
+      }
+      if (pickup === dropoff) {
+        toast('Pickup and drop-off cannot be the same.', 'error'); return;
+      }
+      const today = new Date(); today.setHours(0, 0, 0, 0);
+      if (new Date(date) < today) {
+        toast('Travel date cannot be in the past.', 'error'); return;
+      }
 
-  const routeName = route.split('|')[0];
-  const price = parseInt(route.split('|')[1]);
-  const amount = price * parseInt(pax);
-  const ref = genRef();
+      const routeName = route.split('|')[0];
+      const price = parseInt(route.split('|')[1]);
+      const amount = price * parseInt(pax);
+      const ref = genRef();
 
-  const booking = { ref, name, phone, route:routeName, pickup, dropoff, date, time, pax:parseInt(pax), amount, status:'PENDING', created:new Date().toISOString() };
-  bookings.push(booking);
-  save();
+      const booking = { ref, name, phone, route: routeName, pickup, dropoff, date, time, pax: parseInt(pax), amount, status: 'PENDING', created: new Date().toISOString() };
+      bookings.push(booking);
+      save();
 
-  // Confirmation UI
-  $('conf-ref').textContent = ref;
-  $('conf-summary').innerHTML = `<strong>${routeName}</strong> · ${date} at ${time} · ${pax} pax · <strong>$${amount}</strong>`;
-  $('wa-link').href = `https://wa.me/263786532334?text=Hi%2C%20I%20just%20booked%20a%20seat.%20Ref%3A%20${ref}%20%7C%20Route%3A%20${encodeURIComponent(routeName)}%20%7C%20Date%3A%20${date}%20%7C%20Amount%3A%20%24${amount}`;
+      // Confirmation UI
+      $('conf-ref').textContent = ref;
+      $('conf-summary').innerHTML = `<strong>${routeName}</strong> · ${date} at ${time} · ${pax} pax · <strong>$${amount}</strong>`;
+      $('wa-link').href = `https://wa.me/263786532334?text=Hi%2C%20I%20just%20booked%20a%20seat.%20Ref%3A%20${ref}%20%7C%20Route%3A%20${encodeURIComponent(routeName)}%20%7C%20Date%3A%20${date}%20%7C%20Amount%3A%20%24${amount}`;
 
-  // Reset form
-  ['f-route','f-pickup','f-dropoff','f-time','f-date'].forEach(id=>$(id).value='');
-  $('f-name').value=''; $('f-phone').value=''; $('f-pax').value='1';
-  $('amount-display').textContent='$0';
+      // Reset form
+      ['f-route', 'f-pickup', 'f-dropoff', 'f-time', 'f-date'].forEach(id => $(id).value = '');
+      $('f-name').value = ''; $('f-phone').value = ''; $('f-pax').value = '1';
+      $('amount-display').textContent = '$0';
 
-  showPage('confirm');
-}
+      showPage('confirm');
+    }
 
-// ── CHECK BOOKING ──
-function checkBooking(){
-  const ref = $('check-ref').value.trim().toUpperCase();
-  const result = $('booking-result');
-  if(!ref){ toast('Enter a reference number','error'); return; }
+    // ── CHECK BOOKING ──
+    function checkBooking() {
+      const ref = $('check-ref').value.trim().toUpperCase();
+      const result = $('booking-result');
+      if (!ref) { toast('Enter a reference number', 'error'); return; }
 
-  const b = bookings.find(x=>x.ref===ref);
-  if(!b){
-    result.innerHTML = `<div class="not-found">❌ No booking found for <strong>${ref}</strong>.<br>Check the reference and try again.</div>`;
-    result.classList.add('visible');
-    return;
-  }
+      const b = bookings.find(x => x.ref === ref);
+      if (!b) {
+        result.innerHTML = `<div class="not-found">❌ No booking found for <strong>${ref}</strong>.<br>Check the reference and try again.</div>`;
+        result.classList.add('visible');
+        return;
+      }
 
-  const statusClass = b.status==='CONFIRMED'?'status-confirmed':b.status==='CANCELLED'?'status-cancelled':'status-pending';
-  result.innerHTML = `
+      const statusClass = b.status === 'CONFIRMED' ? 'status-confirmed' : b.status === 'CANCELLED' ? 'status-cancelled' : 'status-pending';
+      result.innerHTML = `
     <div class="result-card">
       <div class="result-row"><label>Reference</label><strong>${b.ref}</strong></div>
       <div class="result-row"><label>Passenger</label><strong>${b.name}</strong></div>
@@ -779,56 +1861,56 @@ function checkBooking(){
       <div class="result-row"><label>Amount</label><strong>$${b.amount}</strong></div>
       <div class="result-row"><label>Payment Status</label><span class="status-badge ${statusClass}">${b.status}</span></div>
     </div>`;
-  result.classList.add('visible');
-}
+      result.classList.add('visible');
+    }
 
-// ── ADMIN ──
-const ADMIN_PASS = 'admin123';
+    // ── ADMIN ──
+    const ADMIN_PASS = 'admin123';
 
-function adminLogin(){
-  const pass = $('admin-pass').value;
-  if(pass===ADMIN_PASS){
-    $('login-error').style.display='none';
-    $('admin-pass').value='';
-    showPage('admin');
-    renderDashboard();
-  } else {
-    $('login-error').style.display='block';
-  }
-}
+    function adminLogin() {
+      const pass = $('admin-pass').value;
+      if (pass === ADMIN_PASS) {
+        $('login-error').style.display = 'none';
+        $('admin-pass').value = '';
+        showPage('admin');
+        renderDashboard();
+      } else {
+        $('login-error').style.display = 'block';
+      }
+    }
 
-function adminLogout(){
-  showPage('home');
-}
+    function adminLogout() {
+      showPage('home');
+    }
 
-function renderDashboard(){
-  const filtered = activeFilter==='all' ? bookings : bookings.filter(b=>b.status===activeFilter);
-  const confirmed = bookings.filter(b=>b.status==='CONFIRMED');
-  const pending   = bookings.filter(b=>b.status==='PENDING');
-  const cancelled = bookings.filter(b=>b.status==='CANCELLED');
-  const revenue   = confirmed.reduce((s,b)=>s+b.amount,0);
+    function renderDashboard() {
+      const filtered = activeFilter === 'all' ? bookings : bookings.filter(b => b.status === activeFilter);
+      const confirmed = bookings.filter(b => b.status === 'CONFIRMED');
+      const pending = bookings.filter(b => b.status === 'PENDING');
+      const cancelled = bookings.filter(b => b.status === 'CANCELLED');
+      const revenue = confirmed.reduce((s, b) => s + b.amount, 0);
 
-  $('s-total').textContent     = bookings.length;
-  $('s-pending').textContent   = pending.length;
-  $('s-confirmed').textContent = confirmed.length;
-  $('s-cancelled').textContent = cancelled.length;
-  $('s-revenue').textContent   = '$'+revenue;
-  $('table-count').textContent = `Showing ${filtered.length} of ${bookings.length}`;
+      $('s-total').textContent = bookings.length;
+      $('s-pending').textContent = pending.length;
+      $('s-confirmed').textContent = confirmed.length;
+      $('s-cancelled').textContent = cancelled.length;
+      $('s-revenue').textContent = '$' + revenue;
+      $('table-count').textContent = `Showing ${filtered.length} of ${bookings.length}`;
 
-  const tbody = $('bookings-tbody');
-  if(!filtered.length){
-    tbody.innerHTML=`<tr><td colspan="9" class="empty-table"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:middle"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>No bookings yet.</td></tr>`;
-    return;
-  }
-  tbody.innerHTML = filtered.map(b=>{
-    const statusClass = b.status==='CONFIRMED'?'status-confirmed':b.status==='CANCELLED'?'status-cancelled':'status-pending';
-    const actions = b.status==='PENDING' ? `
+      const tbody = $('bookings-tbody');
+      if (!filtered.length) {
+        tbody.innerHTML = `<tr><td colspan="9" class="empty-table"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right:8px;vertical-align:middle"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>No bookings yet.</td></tr>`;
+        return;
+      }
+      tbody.innerHTML = filtered.map(b => {
+        const statusClass = b.status === 'CONFIRMED' ? 'status-confirmed' : b.status === 'CANCELLED' ? 'status-cancelled' : 'status-pending';
+        const actions = b.status === 'PENDING' ? `
       <button class="action-btn action-confirm" onclick="changeStatus('${b.ref}','CONFIRMED')">Confirm</button>
       <button class="action-btn action-cancel" onclick="changeStatus('${b.ref}','CANCELLED')" style="margin-left:6px">Cancel</button>
-    ` : b.status==='CONFIRMED' ? `
+    ` : b.status === 'CONFIRMED' ? `
       <button class="action-btn action-cancel" onclick="changeStatus('${b.ref}','CANCELLED')">Cancel</button>
     ` : '—';
-    return `<tr>
+        return `<tr>
       <td><strong>${b.ref}</strong></td>
       <td>${b.name}</td>
       <td>${b.phone}</td>
@@ -839,31 +1921,175 @@ function renderDashboard(){
       <td><span class="status-badge ${statusClass}">${b.status}</span></td>
       <td>${actions}</td>
     </tr>`;
-  }).join('');
-}
+      }).join('');
+    }
 
-function changeStatus(ref, status){
-  const b = bookings.find(x=>x.ref===ref);
-  if(!b) return;
-  b.status = status;
-  save();
-  renderDashboard();
-  toast(`Booking ${ref} marked as ${status}.`);
-}
+    function changeStatus(ref, status) {
+      const b = bookings.find(x => x.ref === ref);
+      if (!b) return;
+      b.status = status;
+      save();
+      renderDashboard();
+      toast(`Booking ${ref} marked as ${status}.`);
+    }
 
-function filterTable(filter, btn){
-  activeFilter = filter;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  renderDashboard();
-}
+    function filterTable(filter, btn) {
+      activeFilter = filter;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderDashboard();
+    }
 
-// ── INIT ──
-renderRoutes();
-// Set min date on booking form
-const today = new Date().toISOString().split('T')[0];
-document.addEventListener('DOMContentLoaded',()=>{ if($('f-date')) $('f-date').min=today; });
-if($('f-date')) $('f-date').min=today;
-</script>
+
+    // ══ MOBILE MENU ══
+    function toggleMobileMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+      document.getElementById('hamburger').classList.toggle('open');
+    }
+    function closeMobileMenu() {
+      const m = document.getElementById('mobile-menu');
+      const h = document.getElementById('hamburger');
+      if (m) m.classList.remove('open');
+      if (h) h.classList.remove('open');
+    }
+
+    // ══ MAP PICKERS ══
+    let pickupMap, dropoffMap;
+    let pickupMarker = null, dropoffMarker = null;
+    let mapsReady = false;
+    let acTimers = {};
+    let acResults = {};
+
+    function makeMarkerIcon(color) {
+      return L.divIcon({
+        html: '<svg xmlns="http://www.w3.org/2000/svg" width="30" height="40" viewBox="0 0 30 40"><path d="M15 0C6.716 0 0 6.716 0 15c0 9.5 15 25 15 25S30 24.5 30 15C30 6.716 23.284 0 15 0z" fill="'+color+'" stroke="white" stroke-width="2"/><circle cx="15" cy="15" r="6" fill="white"/><circle cx="15" cy="15" r="3.5" fill="'+color+'"/></svg>',
+        iconSize:[30,40], iconAnchor:[15,40], popupAnchor:[0,-40], className:''
+      });
+    }
+
+    function initMaps() {
+      if (mapsReady) return;
+      mapsReady = true;
+      const ZW = [-20.0, 30.0];
+      pickupMap = L.map('pickup-map', {zoomControl:true, attributionControl:true}).setView(ZW, 7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(pickupMap);
+      dropoffMap = L.map('dropoff-map', {zoomControl:true, attributionControl:true}).setView(ZW, 7);
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap'}).addTo(dropoffMap);
+
+      pickupMap.on('click', function(e){ placePin('pickup', e.latlng.lat, e.latlng.lng); reverseGeo(e.latlng.lat, e.latlng.lng, 'pickup'); });
+      dropoffMap.on('click', function(e){ placePin('dropoff', e.latlng.lat, e.latlng.lng); reverseGeo(e.latlng.lat, e.latlng.lng, 'dropoff'); });
+
+      // Attach search input listeners
+      document.getElementById('pickup-search').addEventListener('input', function(){ liveSearch('pickup', this.value); });
+      document.getElementById('dropoff-search').addEventListener('input', function(){ liveSearch('dropoff', this.value); });
+      document.getElementById('pickup-search').addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); doMapSearch('pickup'); }});
+      document.getElementById('dropoff-search').addEventListener('keydown', function(e){ if(e.key==='Enter'){ e.preventDefault(); doMapSearch('dropoff'); }});
+    }
+
+    function placePin(type, lat, lng) {
+      const map = type === 'pickup' ? pickupMap : dropoffMap;
+      const color = type === 'pickup' ? '#1a3d2b' : '#e8a020';
+      const icon = makeMarkerIcon(color);
+      if (type === 'pickup') {
+        if (pickupMarker) map.removeLayer(pickupMarker);
+        pickupMarker = L.marker([lat,lng],{icon:icon,draggable:true}).addTo(map);
+        pickupMarker.on('dragend', function(ev){ var ll=ev.target.getLatLng(); reverseGeo(ll.lat,ll.lng,'pickup'); });
+      } else {
+        if (dropoffMarker) map.removeLayer(dropoffMarker);
+        dropoffMarker = L.marker([lat,lng],{icon:icon,draggable:true}).addTo(map);
+        dropoffMarker.on('dragend', function(ev){ var ll=ev.target.getLatLng(); reverseGeo(ll.lat,ll.lng,'dropoff'); });
+      }
+      map.setView([lat,lng], 14, {animate:true});
+    }
+
+    function setLocation(type, address, lat, lng) {
+      var short = address.split(',').slice(0,3).join(',').trim();
+      document.getElementById('f-'+type).value = short;
+      document.getElementById(type+'-addr-text').textContent = address;
+      document.getElementById(type+'-addr-text').style.color = type==='pickup' ? 'var(--green)' : 'var(--gold)';
+      document.getElementById(type+'-addr-text').style.fontWeight = '600';
+      document.getElementById(type+'-search').value = short;
+      document.getElementById('sum-'+type).textContent = short;
+      hideAC(type);
+      checkRouteSummary();
+    }
+
+    function checkRouteSummary() {
+      var pu = document.getElementById('f-pickup').value;
+      var dr = document.getElementById('f-dropoff').value;
+      var strip = document.getElementById('route-summary');
+      if (pu && dr) strip.classList.add('visible');
+    }
+
+    async function reverseGeo(lat, lng, type) {
+      try {
+        var res = await fetch('https://nominatim.openstreetmap.org/reverse?lat='+lat+'&lon='+lng+'&format=json',{headers:{'Accept-Language':'en','User-Agent':'RidesZW/1.0'}});
+        var data = await res.json();
+        setLocation(type, data.display_name || (lat.toFixed(5)+', '+lng.toFixed(5)), lat, lng);
+      } catch(e) { setLocation(type, lat.toFixed(5)+', '+lng.toFixed(5), lat, lng); }
+    }
+
+    function liveSearch(type, q) {
+      if (q.length < 2) { hideAC(type); return; }
+      clearTimeout(acTimers[type]);
+      acTimers[type] = setTimeout(async function(){
+        try {
+          var res = await fetch('https://nominatim.openstreetmap.org/search?q='+encodeURIComponent(q)+'&format=json&limit=6&addressdetails=1',{headers:{'Accept-Language':'en','User-Agent':'RidesZW/1.0'}});
+          var data = await res.json();
+          acResults[type] = data;
+          var el = document.getElementById(type+'-autocomplete');
+          if (!data.length) { el.style.display='none'; return; }
+          var items = '';
+          for (var i=0; i<data.length; i++) {
+            var short = data[i].display_name.split(',').slice(0,3).join(',');
+            items += '<li data-type="'+type+'" data-idx="'+i+'">'+short+'</li>';
+          }
+          el.innerHTML = items;
+          el.style.display = 'block';
+          // Use event delegation — no inline onclick with quotes
+          el.querySelectorAll('li').forEach(function(li){
+            li.addEventListener('click', function(){
+              selectAC(this.getAttribute('data-type'), parseInt(this.getAttribute('data-idx')));
+            });
+          });
+        } catch(e) { hideAC(type); }
+      }, 300);
+    }
+
+    function selectAC(type, i) {
+      var r = acResults[type][i]; if(!r) return;
+      placePin(type, parseFloat(r.lat), parseFloat(r.lon));
+      setLocation(type, r.display_name, parseFloat(r.lat), parseFloat(r.lon));
+    }
+
+    function hideAC(type) { document.getElementById(type+'-autocomplete').style.display='none'; }
+
+    async function doMapSearch(type) {
+      var q = document.getElementById(type+'-search').value.trim(); if(!q) return;
+      try {
+        var res = await fetch('https://nominatim.openstreetmap.org/search?q='+encodeURIComponent(q)+'&format=json&limit=1',{headers:{'Accept-Language':'en','User-Agent':'RidesZW/1.0'}});
+        var data = await res.json();
+        if (!data.length) { toast('Location not found. Try a different search.','error'); return; }
+        placePin(type, parseFloat(data[0].lat), parseFloat(data[0].lon));
+        setLocation(type, data[0].display_name, parseFloat(data[0].lat), parseFloat(data[0].lon));
+      } catch(e) { toast('Search failed. Check your connection.','error'); }
+    }
+
+    // Close autocomplete on outside click
+    document.addEventListener('click', function(e){
+      ['pickup','dropoff'].forEach(function(t){
+        var wrap = document.getElementById(t+'-search-wrap');
+        if (wrap && !wrap.contains(e.target)) hideAC(t);
+      });
+    });
+
+    // ── INIT ──
+    renderRoutes();
+    // Set min date on booking form
+    const today = new Date().toISOString().split('T')[0];
+    document.addEventListener('DOMContentLoaded', () => { if ($('f-date')) $('f-date').min = today; });
+    if ($('f-date')) $('f-date').min = today;
+  </script>
 </body>
+
 </html>
