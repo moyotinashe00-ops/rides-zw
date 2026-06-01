@@ -691,6 +691,50 @@
       transform: translateY(-2px)
     }
 
+    .sms-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #1a3d2b;
+      color: var(--white);
+      padding: 14px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: .95rem;
+      text-decoration: none;
+      margin-bottom: 12px;
+      transition: .2s;
+      border: 1.5px solid rgba(232,160,32,.25);
+    }
+
+    .sms-btn:hover {
+      background: var(--green3);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(14,34,25,.18)
+    }
+
+    .contact-methods-divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 4px 0;
+      font-size: .75rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .contact-methods-divider::before,
+    .contact-methods-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--cream2);
+    }
+
     .back-home {
       background: none;
       border: 1.5px solid var(--cream2);
@@ -1560,6 +1604,14 @@
           </svg>
           WhatsApp to Pay — +263786532334
         </a>
+        <div class="contact-methods-divider">or no WhatsApp data?</div>
+        <a class="sms-btn" id="sms-link" href="#">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+          </svg>
+          Text Us — SMS +263786532334
+        </a>
+        <p style="font-size:.76rem;color:var(--muted);margin:-4px 0 16px;text-align:center">Works on any phone — no data or internet needed</p>
         <button class="back-home" onclick="showPage('home')">← Back to Home</button>
       </div>
     </div>
@@ -1615,6 +1667,14 @@
             </svg>
             Chat on WhatsApp
           </a>
+          <div class="contact-methods-divider">no data?</div>
+          <a href="sms:+263786532334" class="sms-btn" style="font-size:.85rem;padding:10px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+            </svg>
+            Send us an SMS
+          </a>
+          <p style="font-size:.74rem;color:var(--muted);text-align:center;margin-top:-6px">Works without internet</p>
         </div>
         <div class="contact-card">
           <h4><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -1826,6 +1886,7 @@
       $('conf-ref').textContent = ref;
       $('conf-summary').innerHTML = `<strong>${routeName}</strong> · ${date} at ${time} · ${pax} pax · <strong>$${amount}</strong>`;
       $('wa-link').href = `https://wa.me/263786532334?text=Hi%2C%20I%20just%20booked%20a%20seat.%20Ref%3A%20${ref}%20%7C%20Route%3A%20${encodeURIComponent(routeName)}%20%7C%20Date%3A%20${date}%20%7C%20Amount%3A%20%24${amount}`;
+      $('sms-link').href = `sms:+263786532334?body=Hi, I booked a seat. Ref: ${ref} | Route: ${routeName} | Date: ${date} | Amount: $${amount}`;
 
       // Reset form
       ['f-route', 'f-pickup', 'f-dropoff', 'f-time', 'f-date'].forEach(id => $(id).value = '');
